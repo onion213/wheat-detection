@@ -22,12 +22,6 @@ class FasterRCNN(pl.LightningModule):
         losses = sum(loss for loss in loss_dict.values())
         return {"loss": losses}
 
-    def val_dataloader(self, batch):
-        img, target = batch
-        loss_dict = self.model(img, target)
-        losses = sum(loss for loss in loss_dict.values())
-        return {"loss": losses}
-
     def configure_optimizers(self):
         optimizer = torch.optim.SGD(self.parameters(), lr=0.005, momentum=0.9, weight_decay=0.0005)
         lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=3, gamma=0.1)
