@@ -1,0 +1,11 @@
+# Cache
+__pycache__/
+
+# Pyenv
+.python-version
+
+# PyTorch Lightning
+lightning_logs
+
+# Data
+data
